@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
+import java.time.Duration;
 import java.time.LocalDate;
 
 @SpringBootApplication
@@ -41,22 +42,22 @@ public class SeriesMiniProjectApplication {
 
             Episode gameOfThronesS1E1 = setEpisode(gameOfThronesS1,
                     "Winter Is Comming",
-                    62D,
+                    Duration.ofMinutes(62),
                     LocalDate.of(2011,4,11));
 
             Episode gameOfThronesS1E2 = setEpisode(gameOfThronesS1,
                     "The Kingsroad",
-                    56D,
+                    Duration.ofMinutes(56),
                     LocalDate.of(2011,4,24));
 
             Episode gameOfThronesS1E3 = setEpisode(gameOfThronesS1,
                     "Lord Snow",
-                    58D,
+                    Duration.ofMinutes(58),
                     LocalDate.of(2011,5,1));
 
             Episode gameOfThronesS1E4 = setEpisode(gameOfThronesS1,
                     "Cripples, Bastards, and Broken Things",
-                    56D,
+                    Duration.ofMinutes(56),
                     LocalDate.of(2011,5,8));
 
             seriesRepository.save(gameOfThrones);
@@ -81,7 +82,7 @@ public class SeriesMiniProjectApplication {
                 .build();
     }
 
-    private Episode setEpisode(Season season, String title, Double length, LocalDate date) {
+    private Episode setEpisode(Season season, String title, Duration length, LocalDate date) {
         return Episode.builder()
                 .title(title)
                 .length(length)

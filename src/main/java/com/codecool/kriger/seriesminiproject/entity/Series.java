@@ -15,12 +15,18 @@ public class Series {
     @Id
     @GeneratedValue
     private Long id;
-    private String title;
 
+    @Column(nullable = false, unique = true)
+    private String title;
 
     @Singular
     @OneToMany(mappedBy = "series",
             cascade = {CascadeType.ALL})
     @EqualsAndHashCode.Exclude
     private Set<Season> seasons;
+
+    public Series(String title) {
+        this.title = title;
+    }
+
 }
