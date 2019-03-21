@@ -173,9 +173,40 @@ public class AllRepositoryTest {
     public void seriesTitleShouldBeNotNull() {
         Series series = Series.builder()
                 .build();
+
         seriesRepository.save(series);
     }
 
-    //TODO seasonSeasonNumberShouldBeNotNull()
-    //TODO episodeTitleShouldBeNotNull()
+    @Test(expected = DataIntegrityViolationException.class)
+    public void seasonSeasonNumberShouldBeNotNull() {
+        Series series = Series.builder()
+                .title("SEASON NUMBER SHOULD BE NOT NULL")
+                .build();
+
+        Season season = Season.builder()
+                .series(series)
+                .build();
+
+        seriesRepository.save(series);
+        seasonRepository.save(season);
+    }
+
+    @Test(expected = DataIntegrityViolationException.class)
+    public void episodeTitleShouldBeNotNull() {
+        Series series = Series.builder()
+                .title("EPISODE TITLE SHOULD BE NOT NULL")
+                .build();
+
+        Season season = Season.builder()
+                .series(series)
+                .build();
+
+        Episode episode = Episode.builder()
+                .season(season)
+                .build();
+
+        seriesRepository.save(series);
+        seasonRepository.save(season);
+        episodeRepository.save(episode);
+    }
 }

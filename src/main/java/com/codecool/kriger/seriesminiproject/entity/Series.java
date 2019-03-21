@@ -19,6 +19,9 @@ public class Series {
     @Column(nullable = false, unique = true)
     private String title;
 
+    @Column(columnDefinition="TEXT")
+    private String description;
+
     @Singular
     @OneToMany(mappedBy = "series",
             cascade = {CascadeType.ALL})
@@ -28,5 +31,4 @@ public class Series {
     public Series(String title) {
         this.title = title;
     }
-
 }

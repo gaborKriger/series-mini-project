@@ -19,13 +19,20 @@ public class Episode {
 
     @Column(nullable = false, unique = true)
     private String title;
+
+    @Column(columnDefinition="TEXT")
+    private String description;
+
     private Duration length;
     private LocalDate releaseDate;
 
     @ManyToOne
     private Season season;
 
-    public Episode(String title, Duration length, LocalDate releaseDate, Season season) {
+    public Episode(String title,
+                   Duration length,
+                   LocalDate releaseDate,
+                   Season season) {
         this.title = title;
         this.length = length;
         this.releaseDate = releaseDate;
