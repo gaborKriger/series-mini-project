@@ -42,7 +42,7 @@ public class SeriesMiniProjectApplication {
             Season gameOfThronesS1 = setSeason(gameOfThrones);
 
             Episode gameOfThronesS1E1 = setEpisode(gameOfThronesS1,
-                    "Winter Is Comming",
+                    "Winter Is Coming",
                     Duration.ofMinutes(62),
                     LocalDate.of(2011, 4, 11),
                     "Jon Arryn, the Hand of the King, is dead. King Robert Baratheon plans to ask his oldest friend, Eddard Stark, to take Jon's place. Across the sea, Viserys Targaryen plans to wed his sister to a nomadic warlord in exchange for an army.");

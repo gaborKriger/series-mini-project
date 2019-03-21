@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 public class Season {
 
-    @Id
+
     @GeneratedValue
     private Long id;
 

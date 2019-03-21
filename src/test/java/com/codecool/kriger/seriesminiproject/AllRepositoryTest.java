@@ -48,7 +48,7 @@ public class AllRepositoryTest {
                 .build();
 
         Episode testEpisode = Episode.builder()
-                .title("TEST IS COMMING")
+                .title("TEST IS COMING")
                 .length(Duration.ofDays(1))
                 .releaseDate(LocalDate.of(2019,3,20))
                 .season(testSeason)
